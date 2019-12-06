@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章管理</title>
+    <link rel="shortcut icon" href="https://www.steviekwok.top/favicon.ico" />
+    <link rel="bookmark" href="https://www.steviekwok.top/favicon.ico" type="image/x-icon" /> 
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/adm.css">
+     <?php include ROOT . '/view/header.html'; ?> 
+</head>
+<body>
+    <header style="background-image:url(/images/6d228ffdf9cc976affdb1c015cac498c.jpg);background-size:contain">
+        <h1>Blog后台管理界面</h1>
+    </header>
+    <div id="main">
+        <div id="lside">
+            <aside>
+                <h4>类别管理</h4>
+                <ul>
+                    <li><a href="/admin/catlist/">分类列表</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <h4>文章管理</h4>
+                <ul>
+                    <li>文章列表</li>
+                    <li><a href="/admin/artadd/">发布文章</a></li>
+                    <li><a href="/admin/commlist/">评论管理</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <h4>个人中心</h4>
+                <ul>
+                    <li><a href="/admin/cp/">修改密码</a></li>
+                    <li><a href="/admin/logout/">退出登陆</a></li>
+                </ul>
+            </aside>
+        </div>
+        <div id="rside">
+            <table>
+                <tr>
+                    <td>日期</td>
+                    <td>标题</td>
+                    <td>分类</td>
+                    <td>回复</td>
+                    <td>状态</td>
+                </tr>
+                <?php foreach($arts as $a) {?>
+                <tr>
+                    <td><?php echo date('Y/m/d H:i', strtotime($a['pubtime']));?></td>
+                    <td style="width:400px;"><a href="/admin/artedit/art_id/<?php echo $a['art_id'];?>/"><?php echo $a['title'];?></a></td>
+                    <td><?php echo $a['catname'];?></td>
+                    <td><a href="/admin/commlist/art_id/<?php echo $a['art_id'];?>/"><?php echo $a['comm'];?></a></td>
+                    <td>
+                        
+						<a href="/admin/artedit/art_id/<?php echo $a['art_id'];?>/">编辑</a>|
+                        <a href="javascript:getVal(<?php echo $a['art_id'];?>)">删除</a>
+						
+                    </td>
+                </tr>
+                <?php }?>
+            </table>
+            <div class="pagination" role="navigation">
+                <?php echo $pages; ?>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2016 · GeneratePress · WordPress
+    </footer>
+    <script>
+        function getVal(id){
+            if(confirm("删除文章将不可恢复，是否继续？"))
+                window.location="/admin/artdel.php?art_id="+id;
+        }
+    </script>
+</body>
+</html>

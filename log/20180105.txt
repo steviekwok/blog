@@ -1,0 +1,15 @@
+----------------------------------------- 
+2018/01/05 22:30:45
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tag where tag= 'p1hp'' at line 1
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/05 22:33:08
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'seect count(*) from art' at line 1
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/05 22:34:06
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'seect count(*) from art' at line 1
+----------------------------------------- 
+

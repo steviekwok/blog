@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分类列表</title>
+         <link rel="shortcut icon" href="https://www.steviekwok.top/favicon.ico" />
+    <link rel="bookmark" href="https://www.steviekwok.top/favicon.ico" type="image/x-icon" /> 
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/adm.css">
+     <?php include ROOT . '/view/header.html'; ?> 
+</head>
+<body>
+    <header style="background-image:url(/images/6d228ffdf9cc976affdb1c015cac498c.jpg);background-size:contain">
+        <h1>Blog后台管理界面</h1>
+    </header>
+    <div id="main">
+        <div id="lside">
+            <aside>
+                <h4>类别管理</h4>
+                <ul>
+                    <li>分类列表</li>
+                </ul>
+            </aside>
+            <aside>
+                <h4>文章管理</h4>
+                <ul>
+                    <li><a href="/admin/artlist/">文章列表</a></li>
+                    <li><a href="/admin/artadd/">发布文章</a></li>
+                    <li><a href="/admin/commlist/">评论管理</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <h4>个人中心</h4>
+                <ul>
+                    <li><a href="/admin/cp/">修改密码</a></li>
+                    <li><a href="/admin/logout/">退出登陆</a></li>
+                </ul>
+            </aside>
+        </div>
+        <div id="rside">
+            <div style="margin-bottom:5px;text-align: right;">
+                ——>&nbsp;<button id="btnAdd" type="button"  class="btn_submit_b" style="width:180px">添加分类</button>
+            </div>
+            <table>
+                <tr>
+                    <td>id</td>
+                    <td>类别名</td>
+                    <td>上级分类</td>
+                    <td>文章数</td>
+                    <td>操作</td>
+                </tr>
+                <?php foreach($cats as $c): ?>
+                <tr>
+                    <td><?php echo $c['cat_id'];?></td>
+                    <td><?php echo $c['catname'];?></td>
+                    <td><?php echo $c['parent_id'];?></td>
+                    <td><span class="badge">
+					<?php if($c['num']){ ?>
+					<a href="/admin/artlist/cat_id/<?php echo $c['cat_id'];?>/"><?php echo $c['num'];?></a><?php } else{ echo $c['num'];}?>
+					</span></td>
+                    <td>
+					    <a href="javascript:void(0);" onclick='editCat(<?php echo $c['cat_id'].',"'.$c['catname'].'",'.$c['parent_id'];?>)'>编辑</a> |
+						<a href="javascript:getVal(<?php echo $c['cat_id'].','.$c['num'];?>)">删除</a>               
+                    </td>
+                </tr>
+                <?php endforeach; ?>
+            </table>
+            <div class="pagination" role="navigation">
+                <?php echo $pages; ?>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2016 · GeneratePress · WordPress
+    </footer>
+    <script>
+        function remove_ui_dialog(){
+            $('.ui-dialog').remove();
+        }
+        function getVal(id,n){
+            if(n){
+                if(confirm("该类别下有"+n+"篇文章，删除将会把文章移出此类，是否继续？"))
+                    window.location="/admin/catdel.php?cat_id="+id;
+            }
+            else{
+                if(confirm("确定要删除该类别吗？"))
+                    window.location="/admin/catdel.php?cat_id="+id;
+            }
+        }
+        function editCat(cid,cname,pid){
+            $.post({
+                //dataType : "json",
+                url: "/admin/catManage.php",
+                data: {act: "mod",cid: cid, cname: cname, pid: pid},
+                success: function (res) {
+                    if(res != "error"){
+                        $('body').append(res);
+                        $('input[name="catname"]').focus().val($('input[name="catname"]').val());//使光标放值之后
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert('error:catlistedit');
+                }
+            });
+        }
+        function validate(){
+            //console.log('cname');
+            var cname = $.trim($('input[name="catname"]').val());
+            if(cname.length == 0){
+                $('#tips').text('分类名不能为空');
+             return false;
+            }
+        }
+        $("#btnAdd").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/admin/catManage.php",
+                data: {act: "add"},
+                success: function (res) {
+                    if(res != "error"){
+                        $('body').append(res);
+                        $('input[name="catname"]').focus();
+                    }
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    alert('error:catlistadd');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

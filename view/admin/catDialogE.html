@@ -1,0 +1,31 @@
+<div class="ui-dialog">
+    <div class="ui-dialog-title">
+        <span>类别编辑</span>
+        <a href='javascript:remove_ui_dialog()' class='ks-dialog-close' role='button'></a>
+    </div>
+    <div class="ui-dialog-content">
+        <form action="/admin/catManage.php" name="loginForm" id="loginForm" method="post"  onsubmit="return validate()">
+            <label>
+                <span>类别名</span>
+                <input type="text" name="catname" size="25" value="<?php echo $cname; ?>">
+                <input type="hidden" name="cat_id" value="<?php echo $cid; ?>">
+                <input type="hidden" name="edit">
+            </label>
+            <label> <span>上级分类</span>
+                <select name="parent_id" >
+                    <option value="0">顶级分类</option>
+                    <?php foreach($cattree as $c): ?>
+                    <option value="<?php echo $c['cat_id']; ?>" <?php if($c['cat_id'] == $pid): ?>selected <?php endif; ?>  >
+                        <?php $i = $c['lv']; while($i--): ?>&nbsp;&nbsp;<?php endwhile; ?>
+                        <?php echo $c['catname']; ?>
+                    </option>
+                    <?php endforeach; ?>
+                </select>
+            </label>
+            <p id="tips" style='margin:5px 0 5px 90px;color:red;'></p>
+            <div class="btns">
+                <input type="submit"  id="btn_submit_b" class="btn_submit_b" value="确  定" >
+            </div>
+        </form>
+    </div>
+</div>

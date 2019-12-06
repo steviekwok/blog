@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <?php include ROOT . '/view/header.html'; ?> 
+        <link rel="shortcut icon" href="https://www.steviekwok.top/favicon.ico" />
+    <link rel="bookmark" href="https://www.steviekwok.top/favicon.ico" type="image/x-icon" /> 
+<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/static/css/adm.css">
+<style>
+form {
+    width:30%;
+    margin:50px auto;
+}
+</style>
+</head>
+<body>
+    <header style="background-image:url(/images/6d228ffdf9cc976affdb1c015cac498c.jpg);background-size:contain">
+	    <h1>Blog后台管理界面</h1>
+    </header>
+    <div id="main">
+        <div id="lside">
+            <aside>
+                <h4>类别管理</h4>
+                <ul>
+                    <li><a href="/admin/catlist/">分类列表</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <h4>文章管理</h4>
+                <ul>
+                    <li><a href="/admin/artlist/">文章列表</a></li>
+                    <li><a href="/admin/artadd/">发布文章</a></li>
+                    <li><a href="/admin/commlist/">评论管理</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <h4>个人中心</h4>
+                <ul>
+                    <li>修改密码</li>
+                    <li><a href="/admin/logout/">退出登陆</a></li>
+                </ul>
+            </aside>
+        </div>
+        <div id="rside">    
+            <form action="" method="post">
+			    <?php if(isset($suc)): ?>
+                <p id='tips' style='margin-bottom:10px;color:green;'><?php echo $suc; ?></p>
+				<?php elseif(isset($err)): ?>
+                <p id='tips' style='margin-bottom:10px;color:red;'><?php echo $err; ?></p>
+				<?php endif; ?>
+                <p>
+                <input placeholder="用户名" name="name" type="text" size="30">
+                </p>
+                <p>
+                <input placeholder="原密码" name="password" type="password" size="30">
+                </p>
+				<p>
+                <input placeholder="新密码" name="newpassword1" type="password" size="30">
+                </p>
+				<p>
+                <input placeholder="再输一次新密码" name="newpassword2" type="password" size="30">
+                </p>
+				<input style="width:35%;margin-left:5%;margin-right:5%;margin-top:10px" type="submit" value="确定">
+				<input style="width:35%;" type="reset" value="重 置" name="reset">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <span style="color:#993300;">&copy; 2016,Content By 告鲁夫转身 ・ GeneratePress ・ WordPress</span>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章发布</title>
+            <link rel="shortcut icon" href="https://www.steviekwok.top/favicon.ico" />
+    <link rel="bookmark" href="https://www.steviekwok.top/favicon.ico" type="image/x-icon" /> 
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/adm.css">
+    <script src="/ueditor/ueditor.config.js"></script>
+    <script src="/ueditor/ueditor.all.js"></script>
+     <?php include ROOT . '/view/header.html'; ?> 
+</head>
+<body>
+    <header style="background-image:url(/images/6d228ffdf9cc976affdb1c015cac498c.jpg);background-size:contain">
+        <h1>Blog后台管理界面</h1>
+    </header>
+    <div id="main">
+        <div id="lside">
+            <aside>
+                <h4>类别管理</h4>
+                <ul>
+                    <li><a href="/admin/catlist/">分类列表</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <h4>文章管理</h4>
+                <ul>
+                    <li><a href="/admin/artlist/">文章列表</a></li>
+                    <li>发布文章</li>
+                    <li><a href="/admin/commlist/">评论管理</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <h4>个人中心</h4>
+                <ul>
+                    <li><a href="/admin/cp/">修改密码</a></li>
+                    <li><a href="/admin/logout/">退出登陆</a></li>
+                </ul>
+            </aside>
+        </div>
+        <div id="rside">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>标题:</label>
+                    <p>
+                        <input type="text" name="title" maxlength="100">
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>栏目:</label>
+                    <p>
+                        <select name="cat_id" >
+                            <option value="0">顶级分类</option>
+                            <?php foreach($cattree as $c): ?>
+                            <option value="<?php echo $c['cat_id']; ?>"  >
+                                <?php while($c['lv']--): ?>&nbsp;&nbsp;<?php endwhile;
+                              echo $c['catname']; ?>
+                            </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label >内容:</label>
+                    <p>
+					   <script name="content" id="myEditor" style="height:300px"></script>
+					   <script>UE.getEditor('myEditor');</script>
+					 </p>
+                </div>
+                <div class="form-group">
+                    <label>标签:</label>
+                    <p>
+                        <input type="text" name="tag" style='width:300px' />（最多添加5个标签，多个标签之间用“,”分隔）
+                    </p>
+                </div>
+				<div class="form-group">
+                    <label >摘要:</label>
+                    <p>
+					   <textarea name='abstract' style='height:95px;'></textarea>
+					 </p>
+                </div>
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <p>
+                        <button type="submit" class="btn_submit_b">提 交</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        Copyright &copy; 2016 ・ GeneratePress ・ WordPress
+    </footer>
+</body>
+</html>

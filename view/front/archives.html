@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="Moving from Ghost to HUGO"/>
+    <meta name="twitter:description" content=""/>
+    <meta name="twitter:site" content="@vjeantet"/>-->
+    <meta property="og:title" content="steviekwok的博客" />
+    <meta property="og:site_name" content="steviekwok的博客" />
+    <meta property="og:url" content="https://www.steviekwok.top/" />
+    <meta property="og:image" content="/images/logo.png"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="新个人技术博客，记录学习中遇到的网站编程技术问题，分享一些个人心得。" />
+    <title>归档 - steviekwok的博客</title>
+
+    <meta name="description" content="新个人技术博客，记录学习中遇到的网站编程技术问题，分享一些个人心得。" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+            <link rel="shortcut icon" href="https://www.steviekwok.top/favicon.ico" />
+    <link rel="bookmark" href="https://www.steviekwok.top/favicon.ico" type="image/x-icon" /> 
+
+    <link rel='stylesheet' type='text/css' href='/static/css/screen.css'>
+    <link href="https://steviekwok.top/index.xml" rel="alternate" type="application/rss+xml" title="steviekwok的博客" />
+
+    <meta name="generator" content="Hugo 0.25" />
+     <?php include ROOT . '/view/header.html'; ?> 
+</head>
+<body class="nav-closed">
+
+<div class="nav">
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul class="sb-menu">
+        <li><a href="/" title="Home">Home</a></li>
+        <!-- Dropdown Menu -->
+        <li>
+            <a class="sb-toggle-submenu">tags<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                <?php foreach($tags as $c): ?>
+                <li>
+                    <a href="/tag/<?php echo $c['tag'];?>/" target="_blank">
+                        <?php echo $c['tag'];?>
+                        <small>(<?php echo $c['num'];?>)</small>
+                    </a>
+                </li>
+                <?php endforeach; ?>
+            </ul>
+        </li>
+
+        <li>
+            <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                <?php foreach($cats as $c): if($c['num']): ?>
+                <li>
+                    <a href="/cat/<?php echo $c['catname'];?>/" class="animsition-link">
+                        <?php $i=$c['lv']; while($i--): ?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endwhile;
+                        if($c['lv']): ?>|<?php endif;
+                        while($c['lv']--): ?>-<?php endwhile;
+                        echo $c['catname']; ?>
+                        <small>(<?php echo $c['num'];?>)</small>
+                    </a>
+                </li>
+                <?php else: ?>
+                <li>
+                    <a class="animsition-link">
+                        <?php $i=$c['lv']; while($i--): ?>&nbsp;&nbsp;&nbsp;&nbsp;<?php endwhile;
+                        if($c['lv']): ?>|<?php endif;
+                        while($c['lv']--): ?>-<?php endwhile;
+                        echo $c['catname']; ?>
+                    </a>
+                </li>
+                <?php endif; endforeach; ?>
+
+            </ul>
+        </li>
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                 <li><a href="https://www.iphpt.com" target="_blank" class="link">叶落山城秋</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <ul class="sb-menu secondary">
+        <li><a href="/archives/"  title="归档">归档</a></li>
+        <li><a href="/about/" title="about">About</a></li>
+    </ul>
+</div>
+<span class="nav-cover"></span>
+
+<div class="site-wrapper">
+    <header class="arc-header" style="background-image: url(/images/251912dfa9ec8a13a6328b9dff03918fa0ecc05d.jpg)">
+        <nav class="main-nav overlay clearfix">
+            <a class="blog-logo" href="/"><img src="/images/logo.png" alt="Blog Logo" /></a>
+            <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+        </nav>
+        <div class="vertical">
+            <h2 style="color:#ffdb07" class="page-description">If U think U can U can</h2>
+        </div>
+        <a class="scroll-down icon-arrow-left" href="#content"><span class="hidden">Scroll Down</span></a>
+    </header>
+
+     <main class="content" role="main">
+         <?php if($num): ?>
+         <article class="archives">
+             <?php foreach($arts as $a ):
+			    if(date('Y' , strtotime($a['pubtime'])) !== $year):
+				    $year=date('Y', strtotime($a['pubtime']));?>
+                     <h2><?php echo $year;?></h2>
+                <?php endif; ?>
+                 <li><?php echo date('Y/m/d' , strtotime($a['pubtime']));?>&nbsp;
+                     <a href="/art/<?php echo $a['art_id'];?>/"><?php echo $a['title'];?></a>
+                 </li>
+             <?php endforeach; ?>
+         </article>
+         <?php endif; ?>
+     </main>
+
+    <footer class="site-footer clearfix">
+        <a id="gotop" class="icon-arrow-up" href="#" title="back to top"></a>
+        <section class="copyright"><a href="#">Stevie Kwok</a> All rights reserved.粤ICP备17158644号</section>
+
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+
+    </footer>
+</div>
+<script type='text/javascript' src="/static/js/jquery-3.3.1.min.js"></script>
+<script type='text/javascript' src="/static/js/jquery.fitvids.js"></script>
+<script type='text/javascript' src="/static/js/index.js"></script>
+
+</body>
+</html>
+

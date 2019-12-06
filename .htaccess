@@ -1,0 +1,28 @@
+# nginx rewrite rule
+
+  rewrite ^/about\/$  /about.php break;
+  rewrite ^/archives\/$  /archives.php break;
+  rewrite ^/cat\/([^\/]+)\/$  /index.php?cat=$1 break;
+  rewrite "^/cat/([a-zA-Z0-9]+)/p/([1-9]{1}\d{0,3})/$"  /index.php?cat=$1&page=$2 break;
+  rewrite ^/tag\/([^\/]+)\/$  /index.php?tag=$1 break;
+  rewrite "^/tag/([a-zA-Z0-9]+)/p/([1-9]{1}\d{0,3})/$"  /index.php?tag=$1&page=$2 break;
+  rewrite ^/art\/([^\/]+)\/$  /art.php?art=$1 break;
+  rewrite "^/p\/([1-9]{1}\d{0,3})\/$" /index.php?page=$1 break;
+  rewrite ^/fe14/$  /fe14.php break;
+
+  rewrite ^/admin/artlist/$  /admin/artlist.php break;
+  rewrite ^/admin/artlist/cat_id/([0-9]+)/$  /admin/artlist.php?cat_id=$1 break;
+  rewrite "^/admin/artlist/p/([1-9]{1}\d{0,3})/$"  /admin/artlist.php?page=$1 break;
+  rewrite "^/admin/artlist/cat_id/([0-9]+)/p/([1-9]{1}\d{0,3})/$"  /admin/artlist.php?cat_id=$1&page=$2 break;
+  rewrite ^/admin/artedit/art_id/([0-9]+)/$  /admin/artedit.php?art_id=$1 break;
+  rewrite ^/admin/commlist/$  /admin/commlist.php break;
+  rewrite "^/admin/commlist/p/([1-9]{1}\d{0,3})/$"  /admin/commlist.php?page=$1 break;
+  rewrite ^/admin/commlist/art_id/([0-9]+)/$  /admin/commlist.php?art_id=$1 break;
+  rewrite "^/admin/commlist/art_id/([0-9]+)/p/([1-9]{1}\d{0,3})/$"  /admin/commlist.php?art_id=$1&page=$2 break;
+  rewrite ^/admin/artadd/$  /admin/artadd.php break;
+  rewrite ^/admin/catlist/$  /admin/catlist.php break;
+  rewrite "^/admin/catlist/p/([1-9]{1}\d{0,3})/$"  /admin/catlist.php?page=$1 break;
+  rewrite /admin/cp/$  /admin/cp.php break;
+  rewrite ^/admin/logout/$  /admin/logout.php break;
+
+# end nginx rewrite rule

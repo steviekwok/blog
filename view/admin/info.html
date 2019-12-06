@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台主页</title>
+     <?php include ROOT . '/view/header.html'; ?> 
+        <link rel="shortcut icon" href="https://www.steviekwok.top/favicon.ico" />
+    <link rel="bookmark" href="https://www.steviekwok.top/favicon.ico" type="image/x-icon" /> 
+<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+<link rel="stylesheet" type="text/css" href="/static/css/adm.css">
+</head>
+<body>
+    <header style="background-image:url(/images/6d228ffdf9cc976affdb1c015cac498c.jpg);background-size:contain">
+        <h1>Blog后台管理界面</h1>
+    </header>
+    <div id="main">
+        <div id="lside">
+            <aside>
+                <h4>类别管理</h4>
+                <ul>
+                    <li><a href="/admin/catlist/">分类列表</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <h4>文章管理</h4>
+                <ul>
+                    <li><a href="/admin/artlist/">文章列表</a></li>
+                    <li><a href="/admin/artadd/">发布文章</a></li>
+                    <li><a href="/admin/commlist/">评论管理</a></li>
+                </ul>
+            </aside>
+            <aside>
+                <h4>个人中心</h4>
+                <ul>
+                    <li><a href="/admin/cp/">修改密码</a></li>
+                    <li><a href="/admin/logout/">退出登陆</a></li>
+                </ul>
+            </aside>
+        </div>
+        <div id="rside">
+            <?php if($result == 'succ'): ?>
+            <div class="succ"><?php echo $res;?></div>
+            <?php elseif($result == 'fail'):?>
+            <div class="danger" ><?php echo $res;?></div>
+            <?php endif; ?>
+            <div id="redirectionMsg" style="text-align: center;" >
+                请稍等，将在<span id="spanSeconds">2</span>秒后跳转
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <span style="color:#993300;">&copy; 2016,Content By 告鲁夫转身 ・ GeneratePress ・ WordPress</span>
+    </footer>
+
+    <script language="JavaScript">
+        var seconds = 2;
+        var defaultUrl = "<?php echo $url;?>";
+
+
+        onload = function() {
+            if (defaultUrl == 'javascript:history.go(-1)' && window.history.length == 0)//history.length属性声明了浏览器历史列表中的元素数量
+            {
+                document.getElementById('redirectionMsg').innerHTML = '';
+                return;
+            }
+            window.setInterval(redirection, 1000);
+
+        };
+
+        function redirection()
+        {
+            if (seconds <= 0)
+            {
+                window.clearInterval();
+                return;
+            }
+
+            seconds --;
+            document.getElementById('spanSeconds').innerHTML = seconds;
+
+            if (seconds == 0)
+            {
+                window.clearInterval();
+                location.href = defaultUrl;
+            }
+        }
+
+    </script>
+</body>
+</html>

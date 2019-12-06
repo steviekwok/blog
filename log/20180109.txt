@@ -1,0 +1,75 @@
+----------------------------------------- 
+2018/01/09 00:50:49
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 00:53:47
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 00:55:55
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 00:59:25
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 01:01:49
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 01:07:02
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 01:07:04
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 01:07:04
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 01:07:04
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 01:11:07
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 01:11:38
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 01:20:00
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 01:27:02
+SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'um desc' at line 2
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 01:39:08
+SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'abstract' at row 1
+----------------------------------------- 
+
+----------------------------------------- 
+2018/01/09 15:33:07
+SQLSTATE[HY000]: General error: 1364 Field 'email' doesn't have a default value
+----------------------------------------- 
+

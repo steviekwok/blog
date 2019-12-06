@@ -1,0 +1,378 @@
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot?v=4.3.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'), 
+  url('../fonts/fontawesome-webfont.woff2?v=4.3.0') format('woff2'), 
+  url('../fonts/fontawesome-webfont.woff?v=4.3.0') format('woff'), 
+  url('../fonts/fontawesome-webfont.ttf?v=4.3.0') format('truetype'), 
+  url('../fonts/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+    body {
+    }
+
+    header{
+        height: 156px;
+        padding: 40px 0px;
+        box-sizing:border-box;
+    }
+
+    header h1,header h4{
+        width: 1100px;
+        margin:0 auto;
+    }
+
+    header h1 {
+        font: 40px/66px '微软雅黑','黑体',sans-serif;
+    }
+
+    header h4{
+        color: #999999;
+        font: 19px/20px '新宋体','宋体',serif;
+    }
+
+	nav {
+	    letter-spacing:-4px;/*解决内联元素换行符空格间隙*/
+	    width:1100px;
+		height:35px;
+		margin:0 auto;
+		line-height:35px;
+		text-align:right;
+    }
+
+	nav a{
+	    display:inline-block;
+	    letter-spacing:0px;/*父元素用了letter-4要变回0，否则字体缩一堆*/
+		width:50px;
+	    text-align:center;
+	    padding: 0 17px 0 15px;
+		margin:0;
+		margin-bottom:-1px;
+		font-size: 13px;
+        font-family: '新宋体','宋体',serif;
+		z-index:80;
+	}
+	
+	nav a:hover{
+        border-bottom:1px solid black;
+	}
+
+    #main {
+        width: 1100px;
+        margin: 50px auto 0;
+    }
+
+    #main::after {
+        content: '';
+        height: 0px;
+        display: block;
+        clear: both;
+    }
+
+    #lside {
+        width: 805px;
+        min-height: 400px;
+        float: left;
+		
+    }
+
+    #rside {
+	    background: #f4f2f7;
+        width: 275px;
+        min-height: 400px;
+        float: right;
+    }
+
+    aside {
+        word-wrap: break-word;
+        padding: 20px 40px 10px;
+		margin-bottom:10px;
+    }
+
+/*     aside:last-child {
+    margin-bottom: 10px;
+} */
+
+    aside h4 {
+        color: black;
+        font:17px/24px '微软雅黑','黑体',sans-serif;
+		padding-bottom:10px;
+		border-bottom:1px solid #DCDCDC;
+        margin-bottom: 10px;
+    }
+
+    aside a,aside:visited {
+        color: #1e73be;
+        font: 14px/26px '新宋体','宋体',serif;
+    }
+
+    aside a:hover {
+        color: black;
+    }
+    
+	aside ol{
+	    margin-left:25px;
+    }
+
+	aside li{	    
+		font: 14px/26px '新宋体','宋体',serif;
+	}
+    
+
+    aside input {
+        border: 1px solid #CCCCCC;
+        background: #FAFAFA no-repeat url('../images/search.png');
+        background-size:15px 15px;
+		background-position-x:5px;
+		background-position-y:center;
+		width: 100%;
+        padding: 10px 15px;
+        padding-left:25px;
+        color: #666666;
+        font-size: 14px;
+		
+    }
+
+    footer{
+        width: 100%;
+        height: 65px;
+        padding: 20px 0px;
+        box-sizing:border-box;
+        background: #222;
+        text-align: center;
+        color: white; 
+        font:17px/22px '微软雅黑','黑体',sans-serif;
+    }
+
+    article {
+        padding: 40px 0px 20px;
+		margin-right:40px;
+		border-bottom:1px solid #DCDCDC;
+		
+    }
+
+    article h2 {
+        font: 25px/36px '微软雅黑','黑体',sans-serif;
+    }
+
+	article p a:hover{
+        color: #19667d;
+        background: #DCDCDC;
+	}
+
+    article li{
+	text-indent:20px;
+    font: 15px/30px '新宋体','宋体',sans-serif;
+	}
+    
+    article li a:link,
+	article li a:visited,
+	article li a:hover,
+	article li a:active{
+	    color:#000;
+	}
+
+    article li a:hover{
+	font-weight:600;
+	}
+
+    .entry_header a:hover {
+        color: #1e73be;
+    }
+
+    .entry_content {
+        margin-top: 30px;
+        color:#3a3a3a;
+        font:15px/22px '新宋体','宋体',serif; 
+		word-wrap: break-word;
+    }
+
+    article:last-of-type {
+        margin-bottom: 0;
+    }
+
+    #pagebar{
+        color: #3a3a3a;
+        font:17px/22px '微软雅黑','黑体',sans-serif;
+        margin: 20px 0px;
+    }
+
+    #pagebar a,#pagebar a:visited {
+        color: #1e73be;
+    }
+
+    #pagebar a:hover {
+        color: black;
+    }
+    .catlink::before {
+        font-family: FontAwesome;
+        content: "\f07b" ;
+        padding:0px 4px; 
+    }
+
+    .comment::before{
+        font-family: FontAwesome;
+        content: "\f075";
+        padding: 0px 4px;
+    }
+
+    .hits::before{
+        font-family: FontAwesome;
+        content: "\f024";
+        padding: 0px 4px;
+    }
+
+	.date::before{
+        font-family: FontAwesome;
+        content: "\f073";
+        padding: 0px 4px;
+    }
+
+	.fa-home::before{
+        font-family: FontAwesome;
+        content: "\f015";
+        padding: 0px 4px;
+    }
+
+	.fa-archive::before{
+        font-family: FontAwesome;
+        content: "\f187";
+        padding: 0px 4px;
+    }
+
+	.fa-user::before{
+        font-family: FontAwesome;
+        content: "\f007";
+        padding: 0px 4px;
+    }
+
+	.fa-rss::before{
+        font-family: FontAwesome;
+        content: "\f09e";
+        padding: 0px 4px;
+    }
+
+    .fa-folder-open-o::before{
+        font-family: FontAwesome;
+        content: "\f114";
+        padding: 0px 6px;
+    }
+
+    .fa-star-o::before{
+        font-family: FontAwesome;
+        content: "\f006";
+        padding: 0px 6px;
+    }
+
+	.fa-file-o::before{
+        font-family: FontAwesome;
+        content: "\f016";
+        padding: 0px 6px;
+    }
+
+	.fa-comment-o::before{
+        font-family: FontAwesome;
+        content: "\f0e5";
+        padding: 0px 6px;
+    }
+
+	.fa-external-link::before{
+        font-family: FontAwesome;
+        content: "\f08e";
+        padding: 0px 6px;
+    }
+
+	.button {
+	display: inline-block;
+	position: relative;
+	margin: 10px;
+	padding: 0 20px;
+	text-align: center;
+	text-decoration: none;
+	font: bold 12px/25px Arial, sans-serif;
+
+	text-shadow: 1px 1px 1px rgba(255,255,255, .22);
+
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	
+	border:1px solid #DCDCDC;
+
+	/*-webkit-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+	-moz-box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);
+	box-shadow: 1px 1px 1px rgba(0,0,0, .29), inset 1px 1px 1px rgba(255,255,255, .44);加阴影立体感*/
+
+	-webkit-transition: all 0.15s ease;
+	-moz-transition: all 0.15s ease;
+	-o-transition: all 0.15s ease;
+	-ms-transition: all 0.15s ease;
+	transition: all 0.15s ease;
+
+    }
+
+	/* Green Color */
+
+.green {
+	color: #3e5706;
+
+	background: #a5cd4e; /* Old browsers */
+	background: -moz-linear-gradient(top,  #a5cd4e 0%, #6b8f1a 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a5cd4e), color-stop(100%,#6b8f1a)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #a5cd4e 0%,#6b8f1a 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #a5cd4e 0%,#6b8f1a 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #a5cd4e 0%,#6b8f1a 100%); /* IE10+ */
+	background: linear-gradient(top,  #a5cd4e 0%,#6b8f1a 100%); /* W3C */
+}
+
+/* Blue Color */
+
+.blue {
+	color: #19667d;
+
+	background: #70c9e3; /* Old browsers */
+	background: -moz-linear-gradient(top,  #70c9e3 0%, #39a0be 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#70c9e3), color-stop(100%,#39a0be)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* IE10+ */
+	background: linear-gradient(top,  #70c9e3 0%,#39a0be 100%); /* W3C */
+}
+
+/* Gray Color */
+
+.gray {
+	color: #515151;
+
+	background: #d3d3d3; /* Old browsers */
+	background: -moz-linear-gradient(top,  #d3d3d3 0%, #8a8a8a 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d3d3d3), color-stop(100%,#8a8a8a)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #d3d3d3 0%,#8a8a8a 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #d3d3d3 0%,#8a8a8a 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #d3d3d3 0%,#8a8a8a 100%); /* IE10+ */
+	background: linear-gradient(top,  #d3d3d3 0%,#8a8a8a 100%); /* W3C */
+}
+
+   /* Big Button Style */
+
+.big {
+	padding: 0 40px;
+	padding-top: 10px;
+	height: 45px;
+	text-transform: uppercase;
+	font: bold 20px/22px Arial, sans-serif;
+    }
+
+.big span {
+	display: block;
+	text-transform: none;
+	font: italic normal 12px/18px Georgia, sans-serif;
+	text-shadow: 1px 1px 1px rgba(255,255,255, .12);
+    }
+
+
+
